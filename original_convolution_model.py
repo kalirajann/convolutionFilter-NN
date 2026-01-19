@@ -55,6 +55,10 @@ print("=" * 70)
 
 model = models.Sequential()
 
+# Input layer (Keras 3.x recommended approach to avoid warnings)
+# This replaces the input_shape parameter in Conv2D
+model.add(layers.Input(shape=(28, 28, 1)))
+
 # ----------------------------------------------------------------------------
 # CONVOLUTION LAYER (THE CORE OF THIS BASELINE MODEL)
 # ----------------------------------------------------------------------------
@@ -80,8 +84,7 @@ model.add(layers.Conv2D(filters=32,
                         kernel_size=(3, 3),
                         strides=(1, 1),
                         padding='valid',
-                        activation='relu',
-                        input_shape=(28, 28, 1)))
+                        activation='relu'))
 
 # Flatten the 2D feature maps into a 1D vector for dense layers
 # Output from Conv2D: (batch, 26, 26, 32) -> Flatten -> (batch, 26*26*32)
