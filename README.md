@@ -30,7 +30,7 @@ convolutionFilter-NN/
 
 Both models use the same architecture:
 
-- **Input**: 28×28 grayscale images (MNIST digits)
+- **Input Layer**: `Input(shape=(28, 28, 1))` - Keras 3.x recommended approach
 - **Conv2D Layer**: 
   - 32 filters
   - 3×3 kernel size
@@ -42,6 +42,8 @@ Both models use the same architecture:
 - **Output Layer**: 10 units (one per digit class) with softmax activation
 
 **Total Parameters**: 692,906 (2.64 MB)
+
+**Note**: The models use `layers.Input()` as the first layer (Keras 3.x best practice) instead of passing `input_shape` to the Conv2D layer. This eliminates warnings and follows current TensorFlow/Keras recommendations.
 
 ## Requirements
 
@@ -257,7 +259,7 @@ This implementation is designed for academic submission.
 
 **Problem**: Warning about `input_shape` argument in Sequential models
 
-**Solution**: This is a harmless warning in Keras 3.x. The models will still train correctly. You can ignore this warning.
+**Solution**: This warning has been fixed in the current code. All models now use the recommended `Input(shape)` layer instead of the `input_shape` parameter. If you see this warning, make sure you're using the latest version of the notebooks/scripts from this repository. The models use Keras 3.x best practices with `layers.Input(shape=(28, 28, 1))` as the first layer.
 
 ### Issue: Wrong Python Version in Jupyter Notebook
 
