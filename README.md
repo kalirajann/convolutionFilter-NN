@@ -15,12 +15,16 @@ Both models are trained on the MNIST handwritten digit dataset to classify digit
 
 ```
 convolutionFilter-NN/
-├── original_convolution_model.py    # Model 1: Original baseline CNN
-├── modified_convolution_model.py    # Model 2: Modified CNN with stride = 1
+├── original_convolution_model.ipynb  # Model 1: Original baseline CNN (Jupyter Notebook)
+├── original_convolution_model.py    # Model 1: Original baseline CNN (Python Script)
+├── modified_convolution_model.ipynb  # Model 2: Modified CNN with stride = 1 (Jupyter Notebook)
+├── modified_convolution_model.py    # Model 2: Modified CNN with stride = 1 (Python Script)
 ├── requirements.txt                 # Python dependencies
 ├── SETUP.md                         # Detailed setup instructions
 └── README.md                        # This file
 ```
+
+**Note**: Both Jupyter notebooks (`.ipynb`) and Python scripts (`.py`) are provided. You can use either format based on your preference.
 
 ## Model Architecture
 
@@ -44,6 +48,7 @@ Both models use the same architecture:
 - Python 3.11 (TensorFlow doesn't support Python 3.14+)
 - TensorFlow >= 2.10.0
 - NumPy >= 1.21.0
+- Jupyter Notebook or JupyterLab (optional, for running `.ipynb` files)
 
 ## Setup Instructions
 
@@ -76,7 +81,30 @@ pip install -r requirements.txt
 
 ## Running the Models
 
-### Model 1: Original Convolution Model
+You can run the models using either **Jupyter Notebooks** (recommended for interactive exploration) or **Python scripts** (for command-line execution).
+
+### Option 1: Using Jupyter Notebooks (Recommended)
+
+1. **Start Jupyter Notebook**:
+   ```bash
+   conda activate convfilter
+   jupyter notebook
+   ```
+   Or use JupyterLab:
+   ```bash
+   conda activate convfilter
+   jupyter lab
+   ```
+
+2. **Open the notebook**:
+   - `original_convolution_model.ipynb` for Model 1
+   - `modified_convolution_model.ipynb` for Model 2
+
+3. **Run all cells**: Use "Run All" from the Cell menu, or run cells individually with Shift+Enter
+
+### Option 2: Using Python Scripts
+
+**Model 1: Original Convolution Model**
 
 ```bash
 # If using conda environment
@@ -87,7 +115,7 @@ python original_convolution_model.py
 /opt/anaconda3/envs/convfilter/bin/python original_convolution_model.py
 ```
 
-### Model 2: Modified Convolution Model
+**Model 2: Modified Convolution Model**
 
 ```bash
 # If using conda environment
@@ -98,9 +126,20 @@ python modified_convolution_model.py
 /opt/anaconda3/envs/convfilter/bin/python modified_convolution_model.py
 ```
 
+### Installing Jupyter (if needed)
+
+If you want to use the notebooks, install Jupyter:
+
+```bash
+conda activate convfilter
+pip install jupyter notebook
+# Or for JupyterLab:
+pip install jupyterlab
+```
+
 ## Expected Output
 
-Each script will output:
+Each notebook/script will output:
 
 1. **Dataset Information**: Training, validation, and test set sizes
 2. **Model Summary**: Layer-by-layer architecture with parameter counts
@@ -171,7 +210,10 @@ Both models should achieve similar results:
 
 ## Academic Use
 
-This implementation is designed for academic submission. All outputs are formatted as plain text that can be directly copied into Word documents or reports.
+This implementation is designed for academic submission. 
+
+- **Jupyter Notebooks**: Perfect for interactive exploration, visualization, and step-by-step execution. You can export notebooks to PDF or HTML for submission.
+- **Python Scripts**: Ideal for command-line execution and automated runs. All outputs are formatted as plain text that can be directly copied into Word documents or reports.
 
 ### What to Include in Your Report:
 
