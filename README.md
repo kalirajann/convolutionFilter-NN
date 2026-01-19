@@ -100,7 +100,15 @@ You can run the models using either **Jupyter Notebooks** (recommended for inter
    - `original_convolution_model.ipynb` for Model 1
    - `modified_convolution_model.ipynb` for Model 2
 
-3. **Run all cells**: Use "Run All" from the Cell menu, or run cells individually with Shift+Enter
+3. **Select the correct kernel** (IMPORTANT):
+   - When you open the notebook, you may see a kernel selection prompt
+   - **Select "Python 3.11 (convfilter)"** from the kernel dropdown
+   - If you don't see this option, go to: Kernel → Change Kernel → Python 3.11 (convfilter)
+   - **Do NOT use Python 3.13** - TensorFlow doesn't support it!
+
+4. **Run all cells**: Use "Run All" from the Cell menu, or run cells individually with Shift+Enter
+
+**Note**: The kernel "Python 3.11 (convfilter)" has been pre-installed. If you don't see it, you may need to restart Jupyter after activating the conda environment.
 
 ### Option 2: Using Python Scripts
 
@@ -132,10 +140,12 @@ If you want to use the notebooks, install Jupyter:
 
 ```bash
 conda activate convfilter
-pip install jupyter notebook
+pip install jupyter notebook ipykernel
 # Or for JupyterLab:
-pip install jupyterlab
+pip install jupyterlab ipykernel
 ```
+
+**Important**: The kernel "Python 3.11 (convfilter)" has been registered. When opening notebooks, make sure to select this kernel (not Python 3.13) to ensure TensorFlow compatibility.
 
 ## Expected Output
 
@@ -248,6 +258,16 @@ This implementation is designed for academic submission.
 **Problem**: Warning about `input_shape` argument in Sequential models
 
 **Solution**: This is a harmless warning in Keras 3.x. The models will still train correctly. You can ignore this warning.
+
+### Issue: Wrong Python Version in Jupyter Notebook
+
+**Problem**: Notebook is using Python 3.13 (or another version) instead of Python 3.11
+
+**Solution**: 
+1. Make sure you've activated the conda environment: `conda activate convfilter`
+2. In the notebook, go to: **Kernel → Change Kernel → Python 3.11 (convfilter)**
+3. If the kernel doesn't appear, restart Jupyter after activating the environment
+4. Verify the kernel by running: `import sys; print(sys.version)` - should show Python 3.11.x
 
 ## References
 
